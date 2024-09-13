@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='max-w-screen-2xl container mx-auto px-4 md:px-20 my-20'>
+    <div name="About" className='max-w-screen-2xl container mx-auto px-4 md:px-20 my-20'>
       <div>
       <h1 className='text-3xl font-bold mb-5'>About</h1>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam nam excepturi aspernatur veritatis quod pariatur sapiente eius ad, ipsa laboriosam temporibus deleniti placeat nostrum iste aut vero accusamus saepe nisi laudantium ipsam rem modi dolorum qui.</p>

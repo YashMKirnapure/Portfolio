@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import photo from "../../public/photo.avif";
 import { CgMenu } from "react-icons/cg";
 import { IoCloseSharp } from "react-icons/io5";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -44,22 +45,51 @@ const Navbar = () => {
           <div>
             <ul className="hidden md:flex space-x-8">
               {navItems.map(({ id, text }) => (
-                <li className='hover:scale-105 duration-200 cursor-pointer'
-                key={id}>{text}</li>
+                <li
+                  className="hover:scale-105 duration-200 cursor-pointer"
+                  key={id}
+                >
+                  {" "}
+                  <Link
+                    to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
+                  >
+                    {" "}
+                    {text}{" "}
+                  </Link>
+                </li>
               ))}
             </ul>
             <div onClick={() => setMenu(!menu)} className="md:hidden">
-              {menu ? <CgMenu size={24} /> : <IoCloseSharp size={24} />}
+              {menu ? <IoCloseSharp size={24} /> : <CgMenu size={24} />}
             </div>
           </div>
         </div>
 
         {/* Mobile Navbar */}
         {menu && (
-          <div className="">
+          <div className="bg-white">
             <ul className="md:hidden flex flex-col h-screen items-center justify-center space-y-3 text-xl">
               {navItems.map(({ id, text }) => (
-                <li className='hover:scale-105 duration-200 font-semibold cursor-pointer' key={id}>{text}</li>
+                <li
+                  className="hover:scale-105 duration-200 font-semibold cursor-pointer"
+                  key={id}
+                >
+                  <Link
+                  onClick={() => setMenu(!menu)}
+                    to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
+                  >
+                    {" "}
+                    {text}{" "}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
